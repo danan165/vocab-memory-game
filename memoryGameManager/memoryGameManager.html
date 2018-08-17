@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <? use LAZ\objects\library\PHPUtil; ?>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <script type="text/javascript" src="/shared/js/angular-1.6.0/angular<?= $_ENV['BUILDTAG'] ?>.js"></script>
+    <script type="text/javascript" src="/shared/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('memoryGameManager', []);
+
+        app.value('gameWordsVal', <?=PHPUtil::json_encode($gameWords)?>);
+        app.value('memoryGameIdVal', <?=PHPUtil::json_encode($memory_game_id)?>);
+        app.value('kidsBookId', <?=PHPUtil::json_encode($kids_book_id)?>);
+        app.value('boardDimensions', <?=PHPUtil::json_encode($gameDimensions)?>);
+        app.value('gameState', <?=PHPUtil::json_encode($gameState)?>);
+        app.value('bookTitle', <?=PHPUtil::json_encode($book_info['name'])?>);
+    </script>
+    <script type="text/javascript" src="content/js/memoryGameManager/memoryGameManager.module.js"></script>
+    <script type="text/javascript" src="content/js/memoryGameManager/game-words.service.js"></script>
+</head>
+
+<body ng-app="memoryGameManager">
+    <memory-game-manager></memory-game-manager>
+</body>
+
+</html>

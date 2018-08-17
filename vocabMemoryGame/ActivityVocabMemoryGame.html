@@ -1,0 +1,106 @@
+<?php
+use LAZ\objects\library\PHPUtil;
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" ng-app="vocabMemoryGame">
+
+<head>
+    <script type="text/javascript" src="/shared/js/angular-1.6.0/angular<?= $_ENV['BUILDTAG'] ?>.js"></script>
+    <script type="text/javascript" src="/js/angular/vocabMemoryGame/vocab-memory-game.component.js"></script>
+    <script type="text/javascript" src="/js/angular/vocabMemoryGame/game-logic.service.js"></script>
+    <script type="text/javascript" src="/js/angular/vocabMemoryGame/vocab-data.service.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("vocabMemoryGame");
+        app.value('resourceDeploymentId', <?=$vocabMemoryGameResourceDeploymentId?>);
+        app.value('studentAssignmentId', <?=$studentAssignmentId?>);
+        app.value('title', <?=PHPUtil::json_encode($title)?>);
+    </script>
+</head>
+
+<style>
+
+    body {
+        font-family: sans-serif;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+        -o-user-select:none;
+        unselectable="on"
+        onselectstart="return false;"
+        onmousedown="return false;"
+    }
+
+    .options-bar {
+        border-radius: 3px;
+        border: 3px solid black;
+        display:inline-block;
+        padding:5px;
+        margin:5px;
+    }
+
+    li {
+        display:inline;
+    }
+
+    .stars-earned {
+        width:250px;
+        margin-left:0;
+        margin-right:0;
+        margin-bottom:5px;
+        margin-top:5px;
+    }
+
+    .winner-banner {
+        color: orangered;
+    }
+
+    .cards th {
+        height:300px;
+        width:300px;
+    }
+
+    .card {
+        height:300px;
+        width:300px;
+        border-radius: 3px;
+        border: 2px solid black;
+    }
+
+    .div-center {
+        display:inline-block;
+        padding:5px;
+        margin:5px;
+    }
+
+    .word {
+        font-size:30px;
+    }
+
+    .partspeech {
+        font-size:22px;
+    }
+
+    .imagecredit {
+        font-size:10px;
+    }
+
+    .definition {
+        font-size:22px;
+    }
+
+    .audio-box {
+        width: 250px;
+    }
+
+    .card-image {
+        width:139px;
+        height:113px;
+    }
+
+</style>
+
+<body>
+    <vocab-memory-game></vocab-memory-game>
+</body>

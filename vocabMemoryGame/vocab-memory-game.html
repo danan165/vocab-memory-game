@@ -1,0 +1,37 @@
+<div align="center">
+    <h1 align="center">Vocabulary Word Memory Game for {{ title }}</h1>
+    <h2 align="center">Instructions:</h2>
+    <h3 align="center">Match each vocabulary word to its definition by clicking on the cards below. Each correct match is worth 5 stars!</h3>
+    <button align="center" ng-if="gameOver" ng-click="displayActivityReward()">DONE --></button>
+</div>
+
+<div align="center">
+    <ul>
+        <li><button ng-click="quitToReadingRoom()">Quit</button></li>
+        <li>Stars Earned: {{ starsEarned }}</li>
+        <li><button ng-click="restartGame()">Restart</button></li>
+    </ul>
+</div>
+
+<div align="center">
+    <table class="cards">
+        <tbody>
+        <tr ng-repeat="cardList in cards">
+            <th ng-repeat="card in cardList">
+                <div class="card" ng-click="clickCard(card)">
+                    <div class="div-center">
+                        <p class="word" ng-if="card.word && card.card_face_up">{{ card.word }}</p>
+                        <p class="partspeech" ng-if="card.partspeech &&card.card_face_up">{{ card.partspeech }}</p>
+                        <audio controls class="audio-box" ng-if="card.audio_url && card.card_face_up" ng-click="$event.stopPropagation()" controlsList="nodownload">
+                            <source src="{{ card.audio_url }}" type="audio/MP3"></source>
+                        </audio>
+                        <img src="{{  card.imagename }}" class="card-image" ng-if="card.imagename && card.card_face_up">
+                        <p class="imagecredit" ng-if="card.imagecredit && card.card_face_up">{{ card.imagecredit }}</p>
+                        <p class="definition" ng-if="card.definition && card.card_face_up">{{ card.definition }}</p>
+                    </div>
+                </div>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+</div>

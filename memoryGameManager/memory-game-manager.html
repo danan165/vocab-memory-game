@@ -1,0 +1,72 @@
+<div>
+    <div>
+        <h1 ng-if="gameState === 'view_game'">View Active Game for {{ bookTitle }}</h1>
+        <h2 ng-if="gameState === 'view_game'">View the activated game. You have the option to archive this version of the game and create a new version.</h2>
+
+        <h1 ng-if="gameState === 'activate_game'">Activate or Remove Game for {{ bookTitle }}</h1>
+        <h2 ng-if="gameState === 'activate_game'">View the saved draft of the game, and choose to activate or remove the draft.</h2>
+
+        <h1 ng-if="gameState === 'new_game'">Create New Game for {{ bookTitle }}</h1>
+        <h2 ng-if="gameState === 'new_game'">Select words to include in the game, and then generate dimensions for the game board.</h2>
+    </div>
+
+    <div>
+        <button ng-click="generateDimensions()" ng-if="gameState === 'new_game'">Generate Board Dimensions</button>
+        <div ng-if="gameState === 'new_game'">Choose game board dimensions:</div>
+
+        <button ng-click="generateDimensions()" ng-if="gameState !== 'new_game'">Show Board Dimensions</button>
+
+        <table ng-show="showFactors">
+            <tr>
+                <th></th>
+                <th>Height</th>
+                <th>Width</th>
+            </tr>
+            <tr ng-repeat="factor in factors">
+                <td><input type="radio" ng-model="selectedDims.boardHeight" ng-value="factor" ng-disabled="gameState !== 'new_game'"></td>
+                <td>{{ factor }}</td>
+                <td>{{ boardSize / factor }}</td>
+            </tr>
+        </table>
+    </div><br>
+
+    <div>
+        <table>
+            <tr>
+                <th>Include?</th>
+                <th>Word</th>
+                <th>Part of Speech</th>
+                <th>Definition</th>
+                <th>Audio</th>
+                <th>Image</th>
+            </tr>
+            <tr ng-repeat="word in gameWords">
+                <td><input type="checkbox" ng-model="word['game_word']" ng-disabled="gameState !== 'new_game'"></td>
+                <td><h3>{{ word['word'] }}</h3></td>
+                <td>{{ word['partspeech'] }}</td>
+                <td>{{ word['definition'] }}</td>
+                <td>
+                    <audio controls ng-if="word['audio_url']" class="audio-box" controlsList="nodownload">
+                        <source src="{{ word['audio_url'] }}" type="audio/MP3"></source>
+                    </audio>
+                </td>
+                <td><img ng-if="word['imagename']" src="{{ word['imagename'] }}"></td>
+            </tr>
+        </table><br>
+
+        <div>
+            <div ng-if="gameState === 'view_game'">
+                <button ng-click="archiveGame()" ng-disabled="archiveButtonDisabled">Archive Game</button>
+            </div>
+
+            <div ng-if="gameState === 'activate_game'">
+                <button ng-click="activateGame()" ng-disabled="removeButtonDisabled || activateButtonDisabled">Activate Game</button>
+                <button ng-click="removeGameDraft()" ng-disabled="removeButtonDisabled || activateButtonDisabled">Remove Game</button>
+            </div>
+
+            <div ng-if="gameState === 'new_game'">
+                <button ng-click="saveGameEdits(gameWords)" ng-disabled="saveButtonDisabled">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
