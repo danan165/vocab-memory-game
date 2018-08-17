@@ -40,11 +40,11 @@ raz-kids CMS, in Reading/RAZ & RK Books: there is a “Memory Game” column tha
 
 Clicking any of the three links (New Game, Activate/Remove Game Draft, View Active Game) will take the user to a view that contains three parts: Game Board Dimensions, Vocabulary Words, and options depending on the action.
 
-New Game: select vocabulary words to include, generate board dimensions based on the amount of words chosen, select board dimensions, save the game draft.
+* **New Game**: select vocabulary words to include, generate board dimensions based on the amount of words chosen, select board dimensions, save the game draft.
 
-Activate/Remove Game Draft: board dimensions and vocab words selected will be disabled and visible, for confirmation/activation of the game draft. Activating the draft will make it live for the students, and removing the draft will allow the editor to create a new one.
+* **Activate/Remove Game Draft**: board dimensions and vocab words selected will be disabled and visible, for confirmation/activation of the game draft. Activating the draft will make it live for the students, and removing the draft will allow the editor to create a new one.
 
-View Active Game: same view as Activate/Remove Game Draft except only additional option is to Archive the Game.
+* **View Active Game**: same view as Activate/Remove Game Draft except only additional option is to Archive the Game.
 
 ## Memory Game Added as Activity
 
