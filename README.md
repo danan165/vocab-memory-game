@@ -1,6 +1,6 @@
 # Learning A-Z Intern Project: Vocabulary Memory Card Game
 
-**Here is a link to the [plunker](https://next.plnkr.co/edit/4DoLn84ZcpY3WsUVkkZn?preview) for the game with hard-coded values.**
+**Here is a link to the [plunker](https://next.plnkr.co/edit/4DoLn84ZcpY3WsUVkkZn?preview) for the game with hard-coded values. This is the frontend of the full stack project.**
 
 A student-facing memory card game that aims to help students learn vocabulary words from ebooks.
 
