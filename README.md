@@ -4,7 +4,7 @@ A student-facing memory card game that aims to help students learn vocabulary wo
 
 Students have the option to play the game when they have finished an ebook. The link to the game is only displayed if a game has been created for that ebook in the Content Management System (CMS). Currently, the link to the game is the rightmost book icon:
 
-<img src="game-link.PNG" alt="Memory Game Link">
+<img src="game-link.png" alt="Memory Game Link">
 
 When a student clicks the link for the first time, they are taken to a blank memory game:
 
@@ -32,7 +32,9 @@ The “DONE →” button that pops up at the top will record activity completio
 
 Here is the [plunker](https://next.plnkr.co/edit/4DoLn84ZcpY3WsUVkkZn?preview) for the Vocabulary Memory Card Game with hard-coded values.
 
-##Game Creation for an Ebook (CMS)
+## Game Creation for an Ebook (CMS)
+
+See the "memoryGameManager" AngularJS module.
 
 raz-kids CMS, in Reading/RAZ & RK Books: there is a “Memory Game” column that lists the presence of a game draft or active game on each leveled book. 
 
@@ -44,13 +46,13 @@ Activate/Remove Game Draft: board dimensions and vocab words selected will be di
 
 View Active Game: same view as Activate/Remove Game Draft except only additional option is to Archive the Game.
 
-##Memory Game Added as Activity
+## Memory Game Added as Activity
 
 Established memory game as an activity type and set a format for the game in the Raz-Kids content database for the August 2018 release.
 
 When a game draft is made active in the CMS, the resource activity is enabled using the format and activity type in the DB.
 
-##Game Logic
+## Game Logic
 
 See “vocabMemoryGame” angular module. The “clickCard” function in the Angular controller contains most of the game logic (flipping cards, identifying matches)
 
@@ -64,7 +66,7 @@ Restart can be clicked at any point before all matches are found. Will create a 
 
 Quit button can be hit at any time. Will take student back to the reading room.
 
-#Saving Student Progress
+## Saving Student Progress
 
 Two tables were created in the activity database for the September release: one for saving student progress and the other for saving student game completion.
 
